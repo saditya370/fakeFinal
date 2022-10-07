@@ -61,8 +61,13 @@ class AlbumsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_album
-      @album = Album.find(params[:id] || 10)
-    end
+      if params[:id] == nil
+      @album = Album.find(1)
+      else
+      @album = Album.find(params[:id])
+
+      end
+        end
 
     # Only allow a list of trusted parameters through.
     def album_params

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # root "albums/10"
   # root :controller => 'albums', :action => '/'
   root "albums#show"
+  # root "albums#index"
   
   
 end
