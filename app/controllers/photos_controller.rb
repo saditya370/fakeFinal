@@ -1,7 +1,15 @@
 class PhotosController < ApplicationController
   def create
     @album = Album.find(params[:album_id])
-    @photo = @album.photos.create(photo_params)
+    @photo = @album.photos.new
+    var = photo_params[:image]
+    # debugger
+    var.each do |a|
+      if(a == "")
+        next
+      end
+      @photo= @album.photos.create!(image: a)
+    end
     
     if @photo.save
       redirect_to album_path(@album)
@@ -14,7 +22,7 @@ class PhotosController < ApplicationController
 
   def photo_params 
 
-      params.require(:photo).permit(:album_id,images: [])
+      params.require(:photo).permit(:album_id,image: [])
 
   end
 end

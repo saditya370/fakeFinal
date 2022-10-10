@@ -7,11 +7,11 @@
 
 <div id="bar">
 <%@album.photos.each do |a|%>
-<%# <%debugger%> 
-    <%if a.images.attached?%>
-         <%a.images.each do|b|%>
-              <%=image_tag b,width: "200px"%>
-         <%end%>
+
+    <%if a.image.attached?%>
+         
+              <%=image_tag a.image,width: "200px"%>
+        
     <%end%>
   <%end%>
 
