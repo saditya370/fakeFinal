@@ -2,17 +2,25 @@
 
 <%= render @album %>
 
-<div id="foo">
+< id="foo">
   <%= render partial: "photos/form"%>
 
-<div id="bar">
+</div>
+
 <%@album.photos.each do |a|%>
+<div data-controller = "drag" data-drag-url ="/albums/<%=@album.id%>/photos/:id/move"  >
+
 
     <%if a.image.attached?%>
-         
+        <div  data-id = "<%= a.id%>" class= "card card-body mb-4">
+
+        
               <%=image_tag a.image,width: "200px"%>
+              </div>
+              
         
     <%end%>
+  </div>
   <%end%>
 
   <style>

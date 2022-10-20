@@ -18,11 +18,19 @@ class PhotosController < ApplicationController
     end
   end
 
+  def move 
+    # debugger
+    @photo = Photo.find([:id])
+    @photo.insert_at(params[:position].to_i)
+    head :ok
+  end
+
+
   private 
 
   def photo_params 
 
-      params.require(:photo).permit(:album_id,image: [])
+      params.require(:photo).permit(:id,:album_id,:position,image: [])
 
   end
 end
